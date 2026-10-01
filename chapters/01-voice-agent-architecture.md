@@ -2,6 +2,21 @@
 
 **Prerequisites:** basic programming. **Goal:** distinguish a model, an agent controller, and a realtime communication system.
 
+<!-- chapter-navigation:start -->
+**In this chapter**
+
+- [The problem starts with time](#the-problem-starts-with-time)
+- [Separate the responsibilities](#separate-the-responsibilities)
+- [Two major architectures](#two-major-architectures)
+- [Follow a request internally](#follow-a-request-internally)
+- [Data plane and control plane](#data-plane-and-control-plane)
+- [Failure exercise](#failure-exercise)
+- [Worked design: a receptionist from input to verified outcome](#worked-design-a-receptionist-from-input-to-verified-outcome)
+- [Implementation boundaries you should be able to draw](#implementation-boundaries-you-should-be-able-to-draw)
+- [Debugging exercise with expected reasoning](#debugging-exercise-with-expected-reasoning)
+- [Check your understanding](#check-your-understanding)
+<!-- chapter-navigation:end -->
+
 ## The problem starts with time
 
 A text chatbot receives a mostly complete message and returns text. A voice agent receives a changing stream while the user may pause, correct themselves, overlap another speaker, or interrupt output. The system must decide when to listen, when to act, what to say, and whether the user has actually heard it.
@@ -49,6 +64,78 @@ An audio chunk can be structurally valid and still be semantically invalid becau
 ## Failure exercise
 
 Draw a cascade for a receptionist. Mark where a wrong sample rate, late transcript revision, duplicate tool execution, and uncleared speaker buffer would occur. Then replace STT/LLM/TTS with a realtime session and identify which responsibilities remain.
+
+## Worked design: a receptionist from input to verified outcome
+
+We will use one running application throughout the course: a receptionist for a fictional repair shop. The shop has a catalog, an appointment calendar, and customer records. The caller says, “Can you book a repair tomorrow at two?” The assistant must identify the service, interpret the date in the shop's timezone, find an available slot, confirm the proposed booking, execute it, and communicate the result.
+
+Start by identifying what counts as success. A pleasant response is insufficient. Success means exactly one authorized booking with the intended service, date, and customer, plus a truthful confirmation. This definition tells us what state and evidence the architecture needs.
+
+### Step 1: distinguish observations from decisions
+
+An observation is something an adapter reports: an audio frame arrived, a transcript changed, a provider returned text, or a booking endpoint timed out. A decision changes application state: commit a turn, authorize a booking, accept output for playback, or close a session.
+
+The same observation can lead to different decisions. A transcript update containing “two” may be displayed immediately, but the booking workflow waits for clarification about AM/PM. A tool timeout can lead to reconciliation rather than a second write. Keeping observations separate from decisions is what allows the application to recover without guessing.
+
+### Step 2: define boundary records
+
+Here is a **conceptual application schema**, not a TEN or provider API:
+
+```json
+{
+  "session_id": "session-A",
+  "user_turn_id": 7,
+  "response_generation": 12,
+  "event_id": "event-183",
+  "type": "transcript_segment_final",
+  "media_start_ms": 10200,
+  "media_end_ms": 11900,
+  "payload": {
+    "segment_id": "segment-9",
+    "text": "Can you book a repair tomorrow at two?"
+  }
+}
+```
+
+`session_id` chooses the conversation. `user_turn_id` correlates intent and workflow. `response_generation` determines whether generated content is still valid. `event_id` can deduplicate delivery. Media times place words in the signal. None of these fields proves identity; authenticated account scope must come from the trusted session context.
+
+Do not require every event to have every field. Input audio may precede assignment to a user turn. The point is to define which identifiers are required for each event type, and who supplies them.
+
+### Step 3: trace one turn, including a correction
+
+| Event | Controller state | Permitted effect |
+| --- | --- | --- |
+| Speech begins | Listening → collecting input | Start/continue recognition; stop obsolete assistant output |
+| Interim “tomorrow at…” | Collecting input | Update displayed hypothesis; optionally prefetch read-only context |
+| Final segment “tomorrow at two” | Awaiting completion | Store stable text; do not yet assume the whole turn is complete |
+| User adds “actually three” | Collecting input again | Cancel pending endpoint; revise intended time |
+| Turn policy commits | Intent ready | Ask which repair service or resolve missing fields |
+| Availability result | Proposal ready | Offer the specific slot, including timezone |
+| User confirms | Authorized operation ready | Execute one keyed booking |
+| Booking commits | Business state updated | Produce truthful confirmation |
+| Caller interrupts confirmation | Business state stays booked | Clear obsolete speech; preserve the booking outcome |
+
+This table reveals why one variable named `conversation_done` cannot represent the system. Input collection, workflow completion, response generation, and delivery have independent states.
+
+### Step 4: choose the architecture deliberately
+
+For this teaching application, a cascade makes boundary inspection easy: we can examine recognized text, the constructed LLM context, generated clauses, and synthesized frames. A realtime audio session may improve conversational cues or reduce some delays in a particular implementation, but it can expose different observability and cancellation semantics.
+
+Compare architectures using the same success definition. Ask whether each can preserve the correction, produce one booking, and reconcile interrupted delivery. Only then compare turn gap and voice quality. This avoids choosing an architecture because one provider demo sounds impressive on a single uncomplicated utterance.
+
+## Implementation boundaries you should be able to draw
+
+Use a separate adapter for capture/transport, recognition, generation, synthesis, and tools. An adapter converts an external contract into your application contract. It should not quietly decide business policy. For example, the ASR adapter normalizes a provider finalization event; the session controller decides whether that is enough to commit a user turn.
+
+The controller needs a dependency on an abstract booking interface, not the browser's audio implementation. The playback component needs response IDs and clear controls, not customer database access. This reduces the number of places where a provider change can alter business correctness.
+
+Not every adapter needs its own process. In a small application they can be objects within one worker. Process boundaries are a deployment choice; responsibility boundaries should be understandable even inside a single process.
+
+## Debugging exercise with expected reasoning
+
+Suppose logs show a correct final transcript and the assistant says “Booked for three,” but the calendar contains two appointments, at two and three. Do not begin by improving TTS or asking the LLM to be more careful. Inspect when the two booking calls were authorized, their operation keys, and whether an interim interpretation triggered the first call.
+
+Suppose instead there is one correct appointment, but the caller hears the old time after interrupting. Inspect output generation IDs and playback queues. The business workflow is correct while the delivery path is wrong. Architecture becomes useful when it helps distinguish these two failures with evidence.
 
 ## Check your understanding
 

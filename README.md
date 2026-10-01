@@ -46,7 +46,7 @@ The diagram is conceptual. Some implementations put turn detection inside a prov
 
 ## Included material
 
-- 22 explanatory chapters with internal mechanisms, worked examples, failure cases, and understanding checks.
+- 22 concept chapters with extended worked sections: numeric derivations, event/state traces, implementation examples, failure investigations, and understanding checks.
 - 12 lab guides with steps, observable deliverables, and acceptance criteria.
 - Runnable offline experiments for PCM, endpointing, stale-output rejection, idempotency, and latency statistics.
 - Commit-pinned TEN walkthroughs for the cascaded pipeline, turn control, and realtime architecture.
@@ -60,6 +60,7 @@ Requires Python 3.9 or newer. No packages, API keys, GPU, or Docker are needed f
 
 ```bash
 python3 examples/audio_frames.py
+python3 examples/model_mechanisms.py
 python3 examples/turn_runtime.py
 python3 examples/tool_idempotency.py
 python3 examples/latency_report.py fixtures/turns.jsonl
@@ -78,5 +79,7 @@ Use the [six-week plan](SYLLABUS.md) for a cohort, or study one chapter and its 
 The course continues a prior Conversational Voice AI Engineering course design. It is newly authored Markdown; it does not reproduce the earlier downloadable booklet. External talks and source repositories retain their own licenses. Links, evidence status, and the TEN reference commit are recorded in [the resource index](resources/README.md) and [source manifest](resources/sources.json).
 
 Provider model names, prices, SDKs, and setup instructions change. The conceptual chapters avoid promising current provider capabilities. TEN links use the inspected commit `1b78cb725910d6f63389ef4ae69b182854d5b9d9`; upgrade deliberately using the source-reading guide.
+
+The chapters explain engineering mechanisms at a learning-course level. They do not implement or train a full foundation model, replace a complete protocol specification, or establish live production performance. Numeric examples, illustrative contracts, runnable snippets, and provider-specific source observations are labeled separately.
 
 Contributions are welcome: see [CONTRIBUTING](CONTRIBUTING.md). Original course text and example code use the [MIT license](LICENSE). This repository is not affiliated with TEN, pyannoteAI, AI Engineer, or any model or transport vendor.

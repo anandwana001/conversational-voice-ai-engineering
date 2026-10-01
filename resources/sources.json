@@ -153,5 +153,18 @@
       "content_status": "not_transcribed_or_viewed"
     }
   ],
-  "bibliography_status": "Primary source identities/pages opened; no complete paper, talk, or upstream code copied into this repository."
+  "bibliography_status": "Primary source identities/pages opened; no complete paper, talk, or upstream code copied into this repository.",
+  "expanded_chapter_sources": {
+    "verified_on": "2026-10-01",
+    "method": "Official pages opened to check the relevant API/protocol references; chapter derivations and toy examples are course-authored.",
+    "urls": [
+      "https://docs.python.org/3/library/asyncio-queue.html",
+      "https://docs.python.org/3/library/asyncio-task.html",
+      "https://docs.pytorch.org/audio/main/tutorials/ctc_forced_alignment_api_tutorial.html",
+      "https://docs.pytorch.org/tutorials/intermediate/scaled_dot_product_attention_tutorial.html",
+      "https://modelcontextprotocol.io/specification/2025-11-25/basic/lifecycle",
+      "https://modelcontextprotocol.io/specification/2025-11-25/server/tools",
+      "https://www.postgresql.org/docs/current/sql-insert.html"
+    ]
+  }
 }

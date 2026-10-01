@@ -9,6 +9,7 @@ Link the primary source, inspected symbol/revision, verified talk timestamp, or 
 ## Validation
 
 - [ ] `python3 scripts/check_docs.py`
+- [ ] `python3 scripts/check_chapter_snippets.py`
 - [ ] `python3 -m unittest discover -s tests -v`
 - [ ] Live changes include environment/version information and relevant traces.
 - [ ] No credentials, real caller data, or private recordings are included.

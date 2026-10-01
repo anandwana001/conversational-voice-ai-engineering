@@ -20,9 +20,12 @@ jobs:
         run: python scripts/check_docs.py
       - name: Verify experiment invariants
         run: python -m unittest discover -s tests -v
+      - name: Execute chapter Python snippets
+        run: python scripts/check_chapter_snippets.py
       - name: Run offline experiments
         run: |
           python examples/audio_frames.py
+          python examples/model_mechanisms.py
           python examples/turn_runtime.py
           python examples/tool_idempotency.py
           python examples/latency_report.py fixtures/turns.jsonl

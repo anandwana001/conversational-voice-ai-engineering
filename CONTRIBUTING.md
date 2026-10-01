@@ -24,10 +24,13 @@ From the repository root:
 
 ```bash
 python3 scripts/check_docs.py
+python3 scripts/check_chapter_snippets.py
 python3 -m unittest discover -s tests -v
 ```
 
 The documentation check verifies local paths/anchors, chapter/lab structure, code-fence balance, and source-manifest shape. It does not validate external link availability, talk contents, or live provider behavior.
+
+After editing chapter headings, run `python3 scripts/update_chapter_navigation.py` to refresh their navigation, then validate the local anchors. Executable Python examples must be self-contained within a chapter; use `text` fences for illustrative pseudocode and label protocol/SQL examples with their scope.
 
 For a code change, run the affected offline example. For a live-path change, include a redacted trace and declare provider/adapter versions. Do not commit credentials, real callers' data, generated recordings, or private account information.
 

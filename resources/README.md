@@ -32,6 +32,13 @@ The study guides contain course-authored questions and experiments. The video co
 | Voice reference code | [TEN pinned revision](https://github.com/ten-framework/ten-framework/tree/1b78cb725910d6f63389ef4ae69b182854d5b9d9) | [Source-reading exercises](../code-reading/README.md) |
 | VAD | [TEN VAD](https://github.com/ten-framework/ten-vad) | Speech-activity implementation reference |
 | Turn detection | [TEN turn detection](https://github.com/ten-framework/ten-turn-detection) | Completion-detection reference |
+| Attention implementation | [PyTorch scaled dot-product attention tutorial](https://docs.pytorch.org/tutorials/intermediate/scaled_dot_product_attention_tutorial.html) | Companion implementation reading for the toy attention calculation |
+| Forced alignment | [Torchaudio CTC alignment tutorial](https://docs.pytorch.org/audio/main/tutorials/ctc_forced_alignment_api_tutorial.html) | Distinguish alignment from unknown-text recognition |
+| Async queues | [Python asyncio queues](https://docs.python.org/3/library/asyncio-queue.html) | Bounded queue and work-acknowledgement semantics |
+| Async cancellation | [Python coroutines and tasks](https://docs.python.org/3/library/asyncio-task.html) | Local cancellation and cleanup behavior |
+| MCP lifecycle | [Versioned lifecycle](https://modelcontextprotocol.io/specification/2025-11-25/basic/lifecycle) | Initialization and capability negotiation |
+| MCP tools | [Versioned tool interface](https://modelcontextprotocol.io/specification/2025-11-25/server/tools) | Invocation and result/error semantics |
+| Atomic operation claims | [PostgreSQL INSERT](https://www.postgresql.org/docs/current/sql-insert.html) | Conflict-aware insertion as one ledger primitive |
 
 The machine-readable [source manifest](sources.json) records verification methods. Opening a landing page verifies the source identity, not every claim in a paper, source package, or video. A contributor adding an implementation-specific claim should identify the exact section, symbol, or timestamp they inspected.
 
