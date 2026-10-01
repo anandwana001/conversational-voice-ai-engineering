@@ -1,0 +1,157 @@
+{
+  "verified_on": "2026-10-01",
+  "ten_reference": {
+    "repository": "https://github.com/ten-framework/ten-framework",
+    "commit": "1b78cb725910d6f63389ef4ae69b182854d5b9d9",
+    "verification_method": "Paths checked against local Git object tree; detailed behavior inspected for the cascade, VAD/turn controllers, realtime graph/controller, ASR, and LLM adapters. Path existence is not live validation.",
+    "paths": [
+      {
+        "path": "README.md",
+        "url": "https://github.com/ten-framework/ten-framework/blob/1b78cb725910d6f63389ef4ae69b182854d5b9d9/README.md",
+        "status": "git_object_path_verified"
+      },
+      {
+        "path": "ai_agents/agents/examples/speaker-diarization/README.md",
+        "url": "https://github.com/ten-framework/ten-framework/blob/1b78cb725910d6f63389ef4ae69b182854d5b9d9/ai_agents/agents/examples/speaker-diarization/README.md",
+        "status": "git_object_path_verified"
+      },
+      {
+        "path": "ai_agents/agents/examples/voice-assistant-realtime/README.md",
+        "url": "https://github.com/ten-framework/ten-framework/blob/1b78cb725910d6f63389ef4ae69b182854d5b9d9/ai_agents/agents/examples/voice-assistant-realtime/README.md",
+        "status": "git_object_path_verified"
+      },
+      {
+        "path": "ai_agents/agents/examples/voice-assistant-realtime/tenapp/property.json",
+        "url": "https://github.com/ten-framework/ten-framework/blob/1b78cb725910d6f63389ef4ae69b182854d5b9d9/ai_agents/agents/examples/voice-assistant-realtime/tenapp/property.json",
+        "status": "git_object_path_verified"
+      },
+      {
+        "path": "ai_agents/agents/examples/voice-assistant-realtime/tenapp/ten_packages/extension/main_python/extension.py",
+        "url": "https://github.com/ten-framework/ten-framework/blob/1b78cb725910d6f63389ef4ae69b182854d5b9d9/ai_agents/agents/examples/voice-assistant-realtime/tenapp/ten_packages/extension/main_python/extension.py",
+        "status": "git_object_path_verified"
+      },
+      {
+        "path": "ai_agents/agents/examples/voice-assistant-sip-twilio/README.md",
+        "url": "https://github.com/ten-framework/ten-framework/blob/1b78cb725910d6f63389ef4ae69b182854d5b9d9/ai_agents/agents/examples/voice-assistant-sip-twilio/README.md",
+        "status": "git_object_path_verified"
+      },
+      {
+        "path": "ai_agents/agents/examples/voice-assistant-video/README.md",
+        "url": "https://github.com/ten-framework/ten-framework/blob/1b78cb725910d6f63389ef4ae69b182854d5b9d9/ai_agents/agents/examples/voice-assistant-video/README.md",
+        "status": "git_object_path_verified"
+      },
+      {
+        "path": "ai_agents/agents/examples/voice-assistant-with-memU/README.md",
+        "url": "https://github.com/ten-framework/ten-framework/blob/1b78cb725910d6f63389ef4ae69b182854d5b9d9/ai_agents/agents/examples/voice-assistant-with-memU/README.md",
+        "status": "git_object_path_verified"
+      },
+      {
+        "path": "ai_agents/agents/examples/voice-assistant-with-ten-vad/README.md",
+        "url": "https://github.com/ten-framework/ten-framework/blob/1b78cb725910d6f63389ef4ae69b182854d5b9d9/ai_agents/agents/examples/voice-assistant-with-ten-vad/README.md",
+        "status": "git_object_path_verified"
+      },
+      {
+        "path": "ai_agents/agents/examples/voice-assistant-with-ten-vad/tenapp/property.json",
+        "url": "https://github.com/ten-framework/ten-framework/blob/1b78cb725910d6f63389ef4ae69b182854d5b9d9/ai_agents/agents/examples/voice-assistant-with-ten-vad/tenapp/property.json",
+        "status": "git_object_path_verified"
+      },
+      {
+        "path": "ai_agents/agents/examples/voice-assistant-with-ten-vad/tenapp/ten_packages/extension/main_python/extension.py",
+        "url": "https://github.com/ten-framework/ten-framework/blob/1b78cb725910d6f63389ef4ae69b182854d5b9d9/ai_agents/agents/examples/voice-assistant-with-ten-vad/tenapp/ten_packages/extension/main_python/extension.py",
+        "status": "git_object_path_verified"
+      },
+      {
+        "path": "ai_agents/agents/examples/voice-assistant-with-turn-detection/README.md",
+        "url": "https://github.com/ten-framework/ten-framework/blob/1b78cb725910d6f63389ef4ae69b182854d5b9d9/ai_agents/agents/examples/voice-assistant-with-turn-detection/README.md",
+        "status": "git_object_path_verified"
+      },
+      {
+        "path": "ai_agents/agents/examples/voice-assistant-with-turn-detection/tenapp/property.json",
+        "url": "https://github.com/ten-framework/ten-framework/blob/1b78cb725910d6f63389ef4ae69b182854d5b9d9/ai_agents/agents/examples/voice-assistant-with-turn-detection/tenapp/property.json",
+        "status": "git_object_path_verified"
+      },
+      {
+        "path": "ai_agents/agents/examples/voice-assistant-with-turn-detection/tenapp/ten_packages/extension/main_python/extension.py",
+        "url": "https://github.com/ten-framework/ten-framework/blob/1b78cb725910d6f63389ef4ae69b182854d5b9d9/ai_agents/agents/examples/voice-assistant-with-turn-detection/tenapp/ten_packages/extension/main_python/extension.py",
+        "status": "git_object_path_verified"
+      },
+      {
+        "path": "ai_agents/agents/examples/voice-assistant/README.md",
+        "url": "https://github.com/ten-framework/ten-framework/blob/1b78cb725910d6f63389ef4ae69b182854d5b9d9/ai_agents/agents/examples/voice-assistant/README.md",
+        "status": "git_object_path_verified"
+      },
+      {
+        "path": "ai_agents/agents/examples/voice-assistant/tenapp/property.json",
+        "url": "https://github.com/ten-framework/ten-framework/blob/1b78cb725910d6f63389ef4ae69b182854d5b9d9/ai_agents/agents/examples/voice-assistant/tenapp/property.json",
+        "status": "git_object_path_verified"
+      },
+      {
+        "path": "ai_agents/agents/examples/voice-assistant/tenapp/ten_packages/extension/main_python/extension.py",
+        "url": "https://github.com/ten-framework/ten-framework/blob/1b78cb725910d6f63389ef4ae69b182854d5b9d9/ai_agents/agents/examples/voice-assistant/tenapp/ten_packages/extension/main_python/extension.py",
+        "status": "git_object_path_verified"
+      },
+      {
+        "path": "ai_agents/agents/examples/websocket-example/README.md",
+        "url": "https://github.com/ten-framework/ten-framework/blob/1b78cb725910d6f63389ef4ae69b182854d5b9d9/ai_agents/agents/examples/websocket-example/README.md",
+        "status": "git_object_path_verified"
+      },
+      {
+        "path": "ai_agents/agents/ten_packages/extension/deepgram_asr_python/extension.py",
+        "url": "https://github.com/ten-framework/ten-framework/blob/1b78cb725910d6f63389ef4ae69b182854d5b9d9/ai_agents/agents/ten_packages/extension/deepgram_asr_python/extension.py",
+        "status": "git_object_path_verified"
+      },
+      {
+        "path": "ai_agents/agents/ten_packages/extension/elevenlabs_tts2_python/extension.py",
+        "url": "https://github.com/ten-framework/ten-framework/blob/1b78cb725910d6f63389ef4ae69b182854d5b9d9/ai_agents/agents/ten_packages/extension/elevenlabs_tts2_python/extension.py",
+        "status": "git_object_path_verified"
+      },
+      {
+        "path": "ai_agents/agents/ten_packages/extension/openai_llm2_python/extension.py",
+        "url": "https://github.com/ten-framework/ten-framework/blob/1b78cb725910d6f63389ef4ae69b182854d5b9d9/ai_agents/agents/ten_packages/extension/openai_llm2_python/extension.py",
+        "status": "git_object_path_verified"
+      },
+      {
+        "path": "ai_agents/agents/ten_packages/extension/openai_mllm_python/extension.py",
+        "url": "https://github.com/ten-framework/ten-framework/blob/1b78cb725910d6f63389ef4ae69b182854d5b9d9/ai_agents/agents/ten_packages/extension/openai_mllm_python/extension.py",
+        "status": "git_object_path_verified"
+      },
+      {
+        "path": "ai_agents/agents/ten_packages/extension/ten_turn_detection/extension.py",
+        "url": "https://github.com/ten-framework/ten-framework/blob/1b78cb725910d6f63389ef4ae69b182854d5b9d9/ai_agents/agents/ten_packages/extension/ten_turn_detection/extension.py",
+        "status": "git_object_path_verified"
+      },
+      {
+        "path": "ai_agents/agents/ten_packages/extension/ten_vad_python/extension.py",
+        "url": "https://github.com/ten-framework/ten-framework/blob/1b78cb725910d6f63389ef4ae69b182854d5b9d9/ai_agents/agents/ten_packages/extension/ten_vad_python/extension.py",
+        "status": "git_object_path_verified"
+      },
+      {
+        "path": "ai_agents/agents/ten_packages/extension/weatherapi_tool_python/extension.py",
+        "url": "https://github.com/ten-framework/ten-framework/blob/1b78cb725910d6f63389ef4ae69b182854d5b9d9/ai_agents/agents/ten_packages/extension/weatherapi_tool_python/extension.py",
+        "status": "git_object_path_verified"
+      },
+      {
+        "path": "ai_agents/agents/ten_packages/extension/websocket_server/extension.py",
+        "url": "https://github.com/ten-framework/ten-framework/blob/1b78cb725910d6f63389ef4ae69b182854d5b9d9/ai_agents/agents/ten_packages/extension/websocket_server/extension.py",
+        "status": "git_object_path_verified"
+      }
+    ]
+  },
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=mFLlVpnGpds",
+      "title": "Beyond Transcription: Building Voice AI That Understands Conversations — Hervé Bredin, pyannoteAI",
+      "channel": "AI Engineer",
+      "metadata_method": "YouTube oEmbed",
+      "content_status": "not_transcribed_or_viewed"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=y9YQc9a3gNw",
+      "title": "The Voice-First AI Overlay: Designing Conversational Co-Pilots - Gregory Bruss",
+      "channel": "AI Engineer",
+      "metadata_method": "YouTube oEmbed",
+      "content_status": "not_transcribed_or_viewed"
+    }
+  ],
+  "bibliography_status": "Primary source identities/pages opened; no complete paper, talk, or upstream code copied into this repository."
+}

@@ -1,0 +1,5 @@
+{"turn_id":"synthetic-1","status":"success","speech_end_ms":1000,"turn_commit_ms":1500,"text_segment_ms":1700,"audio_ready_ms":1850,"playback_start_ms":1950}
+{"turn_id":"synthetic-2","status":"success","speech_end_ms":3000,"turn_commit_ms":3500,"text_segment_ms":3850,"audio_ready_ms":4100,"playback_start_ms":4300}
+{"turn_id":"synthetic-3","status":"success","speech_end_ms":5000,"turn_commit_ms":5300,"text_segment_ms":5450,"audio_ready_ms":5600,"playback_start_ms":5700}
+{"turn_id":"synthetic-4","status":"success","speech_end_ms":7000,"turn_commit_ms":7900,"text_segment_ms":8700,"audio_ready_ms":9100,"playback_start_ms":9400}
+{"turn_id":"synthetic-5","status":"failed","reason":"synthetic provider timeout"}

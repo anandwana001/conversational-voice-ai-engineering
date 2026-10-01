@@ -1,0 +1,28 @@
+name: Validate course
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  offline-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.9'
+      - name: Validate documentation and source manifest
+        run: python scripts/check_docs.py
+      - name: Verify experiment invariants
+        run: python -m unittest discover -s tests -v
+      - name: Run offline experiments
+        run: |
+          python examples/audio_frames.py
+          python examples/turn_runtime.py
+          python examples/tool_idempotency.py
+          python examples/latency_report.py fixtures/turns.jsonl
